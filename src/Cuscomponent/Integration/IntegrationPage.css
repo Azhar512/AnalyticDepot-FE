@@ -1,0 +1,177 @@
+.agent-container {
+  min-height: 100vh;
+  background-color: #000000;
+  color: #b4b4b4;
+  padding: 24px;
+}
+
+.page-title {
+  font-size: 14px;
+  color: #808080;
+  margin-bottom: 24px;
+}
+
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.tab-group {
+  display: flex;
+  gap: 8px;
+}
+
+.tab-button {
+  padding: 8px 16px;
+  border-radius: 6px;
+  background: none;
+  border: none;
+  color: #b4b4b4;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.tab-button:hover {
+  background-color: #1a1a1a;
+}
+
+.tab-button.active {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+}
+
+.search-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.total-agents {
+  color: #808080;
+}
+
+.search-container {
+  position: relative;
+}
+
+.search-input {
+  background-color: #1a1a1a;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  padding-right: 40px;
+  width: 256px;
+  color: #ffffff;
+}
+
+.search-input:focus {
+  outline: 1px solid #10b981;
+}
+
+.search-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #808080;
+  width: 20px;
+  height: 20px;
+}
+
+.table-container {
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.agents-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.agents-table th {
+  text-align: left;
+  padding: 16px 24px;
+  color: #808080;
+  font-weight: normal;
+}
+
+.agents-table td {
+  padding: 16px 24px;
+  border-top: 1px solid #2a2a2a;
+}
+
+.agent-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.agent-logo {
+  font-size: 24px;
+}
+
+.agent-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.agent-name {
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.last-modified {
+  font-size: 12px;
+  color: #808080;
+}
+
+.agent-id {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.copy-icon {
+  width: 16px;
+  height: 16px;
+  color: #808080;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background-color: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  font-size: 14px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.view-button {
+  background: none;
+  border: none;
+  color: #808080;
+  cursor: pointer;
+}
+
+.view-button:hover {
+  color: #ffffff;
+}
+
+.unsubscribe-button {
+  background: none;
+  border: none;
+  color: #ef4444;
+  cursor: pointer;
+}
+
+.unsubscribe-button:hover {
+  color: #f87171;
+}

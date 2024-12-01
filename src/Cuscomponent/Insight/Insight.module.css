@@ -1,0 +1,21 @@
+.Main_Insight_Con{
+
+}
+
+.insight_Button{
+    height: 28px;
+    width: 37px;
+    background-color: purple;
+    border: none;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.Inight_Icon{
+    color: white;
+}
+.Span_Con {
+
+}

@@ -1,0 +1,18 @@
+.Button_Main_Con{
+height: 50px;
+width: 150px;
+
+}
+
+.Button_Con{
+    height: 35px;
+    width: 140px;
+    border-radius: 15px;
+    background-color: purple;
+    text-align: center;
+    align-content: center;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}

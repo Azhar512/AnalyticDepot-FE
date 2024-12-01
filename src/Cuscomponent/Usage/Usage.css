@@ -1,0 +1,77 @@
+.container {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .active-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+  
+  button {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    background-color: white;
+    cursor: pointer;
+  }
+  
+  .models-dropdown {
+    margin-left: 20px;
+  }
+  
+  .navigation {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navigation-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .tab-container {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  
+  .tab {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  
+  .tab.active {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .chart-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .chart {
+    margin-bottom: 20px;
+  }
+  
+  .chart-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .chart-graph {
+    height: 200px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+  }
