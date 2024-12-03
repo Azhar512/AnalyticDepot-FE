@@ -13,7 +13,9 @@ import {
   Cpu,
   Database
 } from 'lucide-react';
+import socket from '../../services/socket';
 import './Dashboard.css';
+
 const Dashboard = () => {
   const [activeScreen, setActiveScreen] = useState('');
   const [storageData, setStorageData] = useState({
@@ -68,10 +70,64 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
+    // Subscribe to real-time updates
+    socket.subscribeToUpdates({
+      onInitialData: (data) => {
+        setStorageData(data.storage);
+        setPerformanceStats(data.performance);
+        setTokenStats(data.tokens);
+      },
+      onSystemHealthUpdate: (health) => {
+        setPerformanceStats(prev => ({
+          ...prev,
+          systemHealth: health
+        }));
+      },
+      onTokenUpdate: (tokens) => {
+        setTokenStats(tokens);
+      },
+      onActivityUpdate: (activity) => {
+        setActivityData(activity);
+      },
+      onApiStatsUpdate: (apiStats) => {
+        setPerformanceStats(prev => ({
+          ...prev,
+          apiRequests: apiStats
+        }));
+      },
+      onUserEngagementUpdate: (engagement) => {
+        setPerformanceStats(prev => ({
+          ...prev,
+          userEngagement: engagement
+        }));
+      },
+      onStorageUpdate: (storage) => {
+        setStorageData(storage);
+      }
+    });
+
     setActivityData(generateTimeData());
+    
+    // Cleanup on unmount
+    return () => {
+      socket.disconnect();
+    };
   }, []);
 
   const [monthlyTokenData, setMonthlyTokenData] = useState(generateMonthlyData());
+
+  // Event tracking handlers
+  const handleApiRequest = (success) => {
+    socket.trackApiRequest(success);
+  };
+
+  const handleNewUser = () => {
+    socket.trackNewUser();
+  };
+
+  const handleFileUpload = (fileType, size) => {
+    socket.trackFileUpload(fileType, size);
+  };
 
   const calculateStoragePercentage = () => {
     return Math.round((storageData.used / storageData.total) * 100);
@@ -90,13 +146,13 @@ const Dashboard = () => {
       <div className="main-content">
         <header className="main-header">
           <div className="header-container">
-            <h1> Overview</h1>
+            <h1>Overview</h1>
             <button className="pro-plan-btn">Upgrade Plan</button>
           </div>
         </header>
 
         <main className="content-area">
-          {/* Existing Usage Grid */}
+          {/* Usage Grid Section */}
           <section className="usage-grid">
             {/* Credits/Storage Card */}
             <div className="usage-card">
@@ -203,7 +259,7 @@ const Dashboard = () => {
             </div>
           </section>
 
-          {/* New Performance Insights Section */}
+          {/* Performance Insights Section */}
           <section className="performance-insights">
             <div className="performance-grid">
               {/* API Performance Card */}
@@ -309,8 +365,6 @@ const Dashboard = () => {
               </svg>
             </div>
           </section>
-
-          
 
           {/* Media Storage Section */}
           <section className="storage-section">
